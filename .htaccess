@@ -1,0 +1,11 @@
+############################################
+## Always On SSL redirect Logic
+## Redirects all http requests to https://
+<IfModule mod_rewrite.c>
+RewriteEngine On
+RewriteBase /
+
+RewriteCond %{HTTPS} !=on [OR]
+RewriteCond %{HTTP_HOST} !^freedvmb\.me$ [NC]
+RewriteRule ^(.*)$ https://freedvmb.me/$1 [L,R=301]
+</IfModule>
