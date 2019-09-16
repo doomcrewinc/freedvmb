@@ -8,41 +8,39 @@
   <meta name="keywords" content="freedvmb countdown">
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <script type="text/javascript" src="./assets/js/jquery-2.0.3.js"></script>
-  <script type="text/javascript" src="./assets/js/freedvmb.js"></script>
+  <script type="text/javascript" src="./assets/js/countdown.js"></script>
   <link rel="stylesheet" type="text/css" href="./assets/css/freedvmb.css" />
 </head>
 
-<body bgcolor="#252422">
-  <div id="main" align="center">
-    <header>
-      <h1>freedvmb countdown</h1>
-    </header>
-    <table style="border:0px;">
-      <tr>
-        <td colspan="8"><span id="future_date"></span></td>
-      </tr>
-    </table>
+<body>
+  <div id="main">
+    <div class="container">
+        <div class="row">
+            <div class="col centered">
+                <h1>freedvmb countdown</h1>
+            </div>
+        </div>
+        <div class="row mg-20">
+            <div class="col centered">
+                <div class="counter"></div>
+            </div>
+        </div>
+        <div class="row mg-20">
+            <div class="col centered">
+                <iframe src="https://giphy.com/embed/hTgPFQKqa2Dnyc9Skd" class="giphy-embed" allowFullScreen></iframe>
+            </div>
+        </div>
+    </div>
+  </div>
     <script>
       $(function() {
-        $('#future_date').countdowntimer({
-          dateAndTime: "2019/11/02 00:00:00",
-          size: "xxl",
-          borderColor: "#252422",
-          backgroundColor: "#252422",
-          fontColor: "#EB5E28",
-          regexpMatchFormat: "([0-9]{1,2}):([0-9]{1,2}):([0-9]{1,2}):([0-9]{1,2})",
-          regexpReplaceWith: "$1<sup class='displayformat'> days</sup> / $2<sup class='displayformat'> hours</sup> / $3<sup class='displayformat'> minutes</sup> / $4<sup class='displayformat'> seconds</sup>"
-        });
+        countDownTimer.init({
+          targetDate: "2019/11/02 00:00:00",
+          targetElement: "div.counter",
+          glue: " "
+        }).start();
       });
     </script>
-    <style type="text/css">
-      .displayformat {
-        font-size: 30px;
-        font-style: italic;
-      }
-    </style>
-    <iframe src="https://giphy.com/embed/hTgPFQKqa2Dnyc9Skd" width="480" height="270" frameBorder="0" class="giphy-embed" allowFullScreen></iframe>
-
 </body>
 
 </html>
