@@ -7,9 +7,11 @@
   <meta name="description" content="freedvmb countdown">
   <meta name="keywords" content="freedvmb countdown">
   <meta name="viewport" content="width=device-width,initial-scale=1">
-  <script type="text/javascript" src="./assets/js/jquery-2.0.3.js"></script>
-  <script type="text/javascript" src="./assets/js/countdown.js"></script>
   <link rel="stylesheet" type="text/css" href="./assets/css/freedvmb.css" />
+  <link rel="stylesheet" href="./assets/css/flipclock.css">
+  <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+  <script src="./assets/js/flipclock.js"></script>
+
 </head>
 
 <body>
@@ -22,7 +24,7 @@
         </div>
         <div class="row mg-20">
             <div class="col centered">
-                <div class="counter"></div>
+                <div class="clock"></div> <!-- was counter -->
             </div>
         </div>
         <div class="row mg-20">
@@ -32,7 +34,7 @@
         </div>
     </div>
   </div>
-    <script>
+<!--    <script>
       $(function() {
         countDownTimer.init({
           targetDate: "2019/11/02 00:00:00",
@@ -41,6 +43,23 @@
         }).start();
       });
     </script>
+-->
+<script type="text/javascript">
+  var clock;
+  $(document).ready(function() {
+    // Grab the current date
+    var currentDate = new Date();
+    // Set some date in the future. In this case, it's always Nov 02 2019
+    var futureDate  = new Date('November 2, 2019 00:00:00');
+    // Calculate the difference in seconds between the future and current date
+    var diff = futureDate.getTime() / 1000 - currentDate.getTime() / 1000;
+    // Instantiate a coutdown FlipClock
+    clock = $('.clock').FlipClock(diff, {
+      clockFace: 'DailyCounter',
+      countdown: true
+    });
+  });
+</script>
 </body>
 
 </html>
